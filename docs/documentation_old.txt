@@ -1,0 +1,224 @@
+Functions (Version 0.5.6)
+
+Line 9: ( function () {
+	Line 21: scene.hardFramework = function() {
+	Line 29: scene.softFramework = function() {
+	Line 41: 		parentEntity: function( name ) {
+	Line 48: 		remove: function( name ) {
+	Line 88: var UI = function( device ) {
+	Line 93: 	UI.log = function() {
+	Line 96: 	UI.browser = function() {
+	Line 161: 						bind: function() {
+	Line 162: 							UI.browser.inputs.color.top.change( function() { dispatchLoggedEvent( UI.browser.events.boundTopColorChange );} );		
+	Line 163: 							UI.browser.inputs.color.bottom.change ( function() { dispatchLoggedEvent( UI.browser.events.boundBottomColorChange ); } );
+	Line 165: 							UI.browser.inputs.color.thresh.colorAbove.click( function( e ) { UI.browser.inputs.color.thresh.topAndBottomBound.confirmUnbind( e ); } );
+	Line 166: 							UI.browser.inputs.color.thresh.colorBelow.click( function( e ) { UI.browser.inputs.color.thresh.topAndBottomBound.confirmUnbind( e ); } );
+	Line 168: 						listen: function() {
+	Line 173: 						unListen: function() {
+	Line 178: 						confirmUnbind: function( e ) {
+	Line 227: 		self.setCheckedVal = function( name, selectedValue ) {
+	Line 233: 				textAndNum: function() { 
+	Line 259: 				slider: function() {
+	Line 267: 				camPos: function() {
+	Line 276: 				selectAndText: function() { 
+	Line 284: 				radioAndCheck: function() { // Formerly "Static"
+	Line 300: 				colorPicker: function() { // Formerly "static" 
+	Line 316: 						x: function() { self.inputs.data.count.x.attr ( 'value' , chartSettings.data.count.x()); },
+	Line 317: 						z: function() { self.inputs.data.count.z.attr ( 'value' , chartSettings.data.count.z()); }
+	Line 321: 				currentStates: function(){
+	Line 407: 		self.events = function(){
+	Line 411: 			self.inputs.updateBtn.onclick = function() {
+	Line 424: 			self.inputs.data.equation.select.on( 'change', function () {
+	Line 437: 				function() {
+	Line 502: 			self.inputs.color.modeSelect.input.change( function(){
+	Line 577: 			self.inputs.color.gradientSelect.input.change( function() {
+	Line 639: 			self.inputs.data.random.height.min.bind( 'propertychange change keyup input paste' , function(e){
+	Line 643: 			self.inputs.data.random.height.max.bind( 'propertychange change keyup input paste' , function(e){ 
+	Line 648: 			self.inputs.color.thresh.isOn.input.change( function(){
+	Line 678: 	UI.mixedReality = function(){};
+	Line 695: /****** FUNCTION DECLARATIONS ******/
+	Line 699: function init() {
+	Line 721: 	debug.master && debug.renderer && console.log ('About to call the render function' );
+	Line 726: function render() {
+	Line 744: function initEventListeners() {
+	Line 757: function initDOMEvents(){
+	Line 761: function initLoadEvents() {
+	Line 762: 	addEventListener('objectFinishedLoading', function (e) { 
+	Line 771: function initControlEvents() {
+	Line 780: function cameras() {
+	Line 785: 			init: function( camera ) {
+	Line 791: 			update: function( camera ) {
+	Line 809: function initRenderer() {
+	Line 822: function setOrientationControls(e) {
+	Line 833: function initbrowserControls() {
+	Line 854: function initVRControls() {
+	Line 869: function lights() {
+	Line 888: function axes( extents , rulers ) {
+	Line 912: 		rulers: function( axis, extents , spacing ) {
+	Line 951: 		draw: function( axis ) {
+	Line 993: function materials() {
+	Line 996: 		hexRGBName: function( r, g, b, a = 1, type ) {			
+	Line 1017: 		hexFromChannels: function( r, g, b ) {
+	Line 1022: 		channelDecToHex: function( channelDecVal ) {
+	Line 1037: 			specularColor: function( channelDecVal, diff = 127 ) {	
+	Line 1043: 				load: function( r, g, b, a ) {	
+	Line 1049: 				init: function( r, g, b, a ) {
+	Line 1076: 		fromColor: function( color, pickBy ){
+	Line 1091: function initGeometries() {
+	Line 1095: 			ground: function( xSize = 2000 , zSize = 2000 , heightOffset = -0.001, opacity = 0.5 ) { 
+	Line 1123: var lucidChart = function( chartSettings, name ) { /* takes chartsettings object as param 1 */
+	Line 1129: 		bar: function( x, z, yHeight, thickness = 0.5 ) {
+	Line 1135: 			entities.geometries.dynamic.chart[x][z].material = chartSettings.color.func( chartSettings, yHeight );	// Pick the material based on the color function
+	Line 1148: 		cap: function( yHeight, math ) {	
+	Line 1161: 			getMinAndMax: function( yHeight, math ){
+	Line 1172: 			reset: function(){
+	Line 1184: 			update: function() {
+	Line 1188: 			renderBy: function() {
+	Line 1192: 					chartSettings.math.heightFunc = lucidChart.math.func.preset.dict;   // The Math Function dictionary;
+	Line 1193: 					chartSettings.math.demoEquation = 'randomHeight';			// The randomHeight function;
+	Line 1198: 					chartSettings.math.heightFunc = lucidChart.math.func.preset.dict;   // The math Function dictionary;
+	Line 1218: 			set: function( colorMode ) {
+	Line 1220: 				// Choose the colorization function based on UI Selection
+	Line 1225: 			update: function() {	
+	Line 1231: 			update: function() {
+	Line 1237: 			set: function( chartSettings ) {
+	Line 1293: 			clear: function( chartSettings ) {		
+	Line 1305: 			checkFor: function(){
+	Line 1310: 				UI: function(){
+	Line 1321: 				integration: function( chartSettings ){
+	Line 1346: 			reset: function(){
+	Line 1354: 			colorOutside: function( chartSettings, yHeight ) {
+	Line 1445: lucidChart.init = function() {
+	Line 1460: 				x: function(){ 					
+	Line 1463: 				z: function(){
+	Line 1491: 			getCount: function(){
+	Line 1511: 				//We'll fill this empty object with values using the entities.colorLib.generate function below.
+	Line 1523: 				setColorsAboveAndBelow: function(){
+	Line 1548: 		getBarThickness: function(){
+	Line 1565: lucidChart.update = function() {
+	Line 1628: 			dict: function( math ) {
+	Line 1635: 						computed: 	function( x, z ) { return (Math.pow( x , 2 ) + z ); },
+	Line 1636: 						display: 	function() { return 'x<sup>2</sup> + z'; }			
+	Line 1639: 						computed: 	function( x, z ) { return (Math.pow( x , 1.05 )) - (Math.pow( z , 1.05 )); },
+	Line 1640: 						display:	function() { return 'x<sup>1.05</sup> - z<sup>1.05</sup>'; }
+	Line 1643: 						computed: 	function( x, z ) { return (Math.pow( x , 0.85 )) - (Math.pow((x * z), ( 0.1 * x ))) + (Math.pow ( z , 1.15 )); },
+	Line 1644: 						display: 	function() { return 'x<sup>0.85</sup> - ( x * z )<sup>( 0.1 * x )</sup> + z<sup>1.15</sup>'; }
+	Line 1647: 						computed: 	function( x, z ) { return (Math.pow( x - z , (0.1 * ( x - z)))); },
+	Line 1648: 						display: 	function() { return '( x - z )<sup>( 0.1 * ( x - z ))</sup>'; }
+	Line 1651: 						computed: 	function( x, z ) { return (Math.pow( x + z , (0.05 * ( x - z)))); },
+	Line 1652: 						display: 	function() { return '( x + z )<sup>(0.05 * ( x - z ))</sup>'; }
+	Line 1655: 						computed:	function( x, z ) { return (Math.pow( x , (1/x) ) + Math.pow( z , (1/z) )); },
+	Line 1656: 						display:	function(){ return 'x<sup>( 1 / x )</sup> + z<sup>( 1 / z )</sup>'; }
+	Line 1659: 						computed: 	function( x, z ) { return (Math.pow( x , z/x ) + Math.pow( z , x/z )); },
+	Line 1660: 						display:	function() { return 'x<sup>( z / x )</sup> + z<sup>( x / z )</sup>'; }
+	Line 1663: 						computed: 	function( x, z ) { return (Math.pow( x , z/x ) + Math.pow( z , 0.3 )); },
+	Line 1664: 						display:	function() { return 'x<sup>( z / x)</sup> + z<sup>0.3</sup>'; }
+	Line 1667: 						computed: 	function( x, z ) { return ( x / z ); },
+	Line 1668: 						display:	function() { return 'x / z'; }
+	Line 1671: 						computed: 	function( x, z ) { return (Math.pow( x , ( z / 10 )) + Math.pow( z , ( x / 10 ))); },
+	Line 1672: 						display:	function() { return 'x<sup>( z / 10 )</sup> + z<sup>( x / 10 )</sup>'; }
+	Line 1675: 						computed: 	function( x, z ) { return ( (x + ( z / 2 )) / ( z + ( x / 2 )) ); },
+	Line 1676: 						display:	function() { return '( x + ( z / 2 )) / ( z + ( x / 2 ))'; }
+	Line 1679: 						computed:	function(){ var min = math.minUserSetHeight || 0; // Default 0
+	Line 1684: 						display:	function(){ return 'Random: Min cell height = ' + math.minUserSetHeight + ', Max = ' + math.maxUserSetHeight; }
+	Line 1687: 						computed: 	function( x, z ) {  var min = math.minUserSetHeight || 0;  // Default 0
+	Line 1693: 						display:	function() { return 'z<sup>' + math.exponent + '</sup> OR ' + math.minUserSetHeight + ' OR ' + 0 ; 
+	Line 1700: 			parse: function( math ) {
+	Line 1708: 				body = body.replace( removeReturn, '' );   // Remove the return part of the function
+	Line 1723: 	random: function( chartSettings) {
+	Line 1730: 	byHeight: function( chartSettings, yHeight ) {
+	Line 1753: 	monoChrome: function() {
+	Line 1766: 	generate: function( chartSettings ) {
+	Line 1798: 			rainbow: function(){
+	Line 1817: 			grayScale: function() {
+	Line 1826: 			twoTone: function() {
+	Line 1838: 			count: function( obj ) {
+	Line 1845: 			first: function( stopSetObj ){
+	Line 1854: 			last: function( stopSetObj ){
+	Line 1863: 			deltas: function( obj, i ) {
+	Line 1874: 				count: function( obj, colorCountAfterEachStop, i ) {
+	Line 1888: 			calc: function( obj, colorCountAfterEachStop, i ) {					
+	Line 1915: 		populate: function( obj ) {
+	Line 1956: 		flatten: function( obj, colorCountAfterEachStop ) {
+	Line 1990: function dispatchLoggedEvent( e ) {
+	Line 2002: function makeLoadedGeometryLineDrawing() {
+	Line 2006: 	function positionObject( mesh ) {
+	Line 2020: function userEquation( usrEquation ) {
+	Line 2023: 	var prefix = 'function( x, z ) { return (';
+	Line 2035: function parseExponentialExpression ( expression ) {
+	Line 2055: function geo2line( geo ) {
+
+initDOMEvents
+initLoadEvents
+bindTopBottomColorAndThresholdColor
+initDesktopUIBoundColorConditionalEventListeners
+unbindColorConfirm
+removeDesktopUIBoundColorConditionalEventListeners
+setColorAboveThreshold
+setColorBelowThreshold
+initControlEvents
+scene
+	hardFramework
+	softFramework
+CAMERAS
+- initCameras
+- initCameraPosition
+- updateCameraPosition
+RENDERER
+- initRenderer
+setOrientationControls
+initDesktopControls
+initVRControls
+lights
+AXES
+- initAxes
+- initAxesMaterials
+- initAxesRulers
+loadPhongMaterial
+channelDecToHex
+assembleHexFromHexChannels
+colorHexToDec
+materialColorHexName
+initPhongMaterial
+initMaterials
+initStaticGeometries
+initDynamicGeometries
+initChart
+updateChart
+lucidChart
+presetMathFuncDictionary
+parseMathFuncDictItem
+handleRenderCap
+getGeneratedMinAndMax
+resetGeneratedHeight
+createParentObj
+entityDelete
+updateChartDataMode
+chartRenderModeByDataType
+updateChartColorMode
+updateChartColorGradientType
+setColorMode
+randomColor
+clearColorZones
+setColorZones
+colorByHeight
+monochrome
+outOfRangeColors
+checkHasMinMaxColorThreshold
+assignMinMaxColorThreshold
+colorLibGenerate
+materialFromPickedColor
+getStopCount
+convertColorStopsObjToDetailedArray
+getStopDeltas
+getStopIntervals
+calcColorsBetweenStops
+flattenColorArray
+spectralStopSet
+dispatchLoggedEvent
+makeLoadedGeometryLineDrawing
+geo2line
+addLoadedGeometry
+loadObjAsMesh
+loadJSON
+parseExponentialExpression

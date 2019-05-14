@@ -1,0 +1,95 @@
+{
+	"metadata": {
+		"version": 4.5,
+		"type": "Object",
+		"generator": "Object3D.toJSON"
+	},
+	"geometries": [
+		{
+			"uuid": "8F137C00-E90F-4239-8D29-2FCBAD654BB0",
+			"type": "IcosahedronGeometry",
+			"radius": 1,
+			"detail": 3
+		}],
+	"materials": [
+		{
+			"uuid": "37A36061-C0E7-4C33-AF21-E1CD2DFB4FA4",
+			"type": "MeshBasicMaterial",
+			"color": 16777215,
+			"depthFunc": 3,
+			"depthTest": true,
+			"depthWrite": true,
+			"wireframe": true,
+			"skinning": false,
+			"morphTargets": false,
+			"dithering": false
+		}],
+	"object": {
+		"uuid": "A2A0F767-2D6B-4A02-BDC5-32A84DF63904",
+		"type": "Scene",
+		"name": "Scene",
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "6C762AEC-90D1-4F6F-87DB-8E774E9329F5",
+				"type": "Mesh",
+				"name": "Icosahedron 1",
+				"castShadow": true,
+				"receiveShadow": true,
+				"matrix": [5,0,0,0,0,5,0,0,0,0,5,0,0,0,0,1],
+				"geometry": "8F137C00-E90F-4239-8D29-2FCBAD654BB0",
+				"material": "37A36061-C0E7-4C33-AF21-E1CD2DFB4FA4"
+			},
+			{
+				"uuid": "D353733E-41D1-48B9-9654-476A3AAD883F",
+				"type": "PointLight",
+				"name": "PointLight 1",
+				"castShadow": true,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,10,10,0,1],
+				"color": 16777088,
+				"intensity": 1,
+				"distance": 0,
+				"decay": 1,
+				"shadow": {
+					"camera": {
+						"uuid": "67BB7802-EFD9-49A6-A4DB-E8A8611D469F",
+						"type": "PerspectiveCamera",
+						"fov": 90,
+						"zoom": 1,
+						"near": 0.5,
+						"far": 500,
+						"focus": 10,
+						"aspect": 1,
+						"filmGauge": 35,
+						"filmOffset": 0
+					}
+				}
+			},
+			{
+				"uuid": "A2BD0234-EF78-4CA1-8146-6AC6E4F86B47",
+				"type": "PointLight",
+				"name": "PointLight 2",
+				"castShadow": true,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,-10,0,10,1],
+				"color": 8454143,
+				"intensity": 1,
+				"distance": 0,
+				"decay": 1,
+				"shadow": {
+					"camera": {
+						"uuid": "743C052A-A90F-415E-AF84-B8C5B8BAFBC3",
+						"type": "PerspectiveCamera",
+						"fov": 90,
+						"zoom": 1,
+						"near": 0.5,
+						"far": 500,
+						"focus": 10,
+						"aspect": 1,
+						"filmGauge": 35,
+						"filmOffset": 0
+					}
+				}
+			}],
+		"background": 11184810
+	}
+}
